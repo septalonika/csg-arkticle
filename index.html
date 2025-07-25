@@ -81,13 +81,6 @@
       let allTableData = []; // To store all original data
       let filteredTableData = []; // To store data after applying search filter
 
-      /**
-       * Dynamically creates and renders an HTML table from an array of data.
-       *
-       * @param {Array<Object>} data - An array of objects, where each object represents a row.
-       * The keys of the objects will be used as table headers.
-       * @param {string} containerId - The ID of the HTML element where the table should be appended.
-       */
       function createTable(data, containerId) {
         const container = document.getElementById(containerId);
         if (!container) {
@@ -109,12 +102,12 @@
         const table = document.createElement("table");
         // Apply Tailwind classes for styling the table and custom class for fixed layout
         table.className =
-          "min-w-full border border-collapse border-gray-300 rounded-lg overflow-hidden table-fixed-layout";
+          "min-w-full border-collapse rounded-lg overflow-hidden table-fixed-layout";
 
         // Create table header (thead)
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
-        headerRow.className = "bg-gray-100"; // Header row background
+        headerRow.className = "bg-blue-500"; // Header row background
 
         // Get headers from the keys of the first data object, excluding 'id'
         const headers = Object.keys(data[0]).filter((key) => key !== "id");
@@ -130,12 +123,12 @@
         headers.forEach((headerText) => {
           const th = document.createElement("th");
           // Apply width classes and other styling
-          th.className = `px-4 py-3 text-sm font-semibold text-center text-gray-700 border border-gray-300 uppercase tracking-wider ${columnWidths[headerText] || ""}`;
+          th.className = `px-4 py-4 text-sm font-semibold text-center text-white uppercase tracking-wider ${columnWidths[headerText] || ""}`;
 
           // Customize header text for 'userId', 'title', 'body'
           let displayHeaderText = headerText;
           if (headerText === "userId") {
-            displayHeaderText = "User ID";
+            displayHeaderText = "ID";
           } else if (headerText === "title") {
             displayHeaderText = "Title";
           } else if (headerText === "body") {
@@ -156,12 +149,12 @@
         // Populate table rows
         data.forEach((rowData, index) => {
           const tr = document.createElement("tr");
-          tr.className = `border-b border-gray-200 ${rowData.body.toLowerCase().includes("rerum") ? "bg-sky-200" : index % 2 === 0 ? "bg-white" : "bg-gray-100"} hover:bg-blue-300 transition duration-150 ease-in-out`;
+          tr.className = `drop-shadow-lg drop-shadow-white ${rowData.body.toLowerCase().includes("rerum") ? "bg-sky-200" : index % 2 === 0 ? "bg-white" : "bg-gray-100"} hover:bg-blue-300 transition duration-150 ease-in-out`;
 
           // Iterate over filtered headers to create cells
           headers.forEach((key) => {
             const td = document.createElement("td");
-            td.className = `px-4 py-2 text-sm text-gray-800 border-r border-gray-200 last:border-r-0 table-cell-content`;
+            td.className = `px-4 py-2 text-sm text-gray-800 last:border-r-0 table-cell-content text-center`;
             td.textContent = rowData[key];
             tr.appendChild(td);
           });
