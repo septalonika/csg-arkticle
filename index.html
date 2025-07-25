@@ -3,9 +3,101 @@
   <head>
     <link rel="stylesheet" href="./public/css/style.css" />
   </head>
-  <body class="container mx-auto px-4">
-    <header class="flex">Header</header>
-    <main class="flex flex-col bg-red-500 py-4 lg:max-w-5xl"></main>
-    <footer>Footer</footer>
+  <body
+    class="flex flex-col w-screen min-h-screen px-8 mx-auto border-2 border-red-500"
+  >
+    <header class="flex">ark<span class="text-red-500">Ticle</span></header>
+
+    <main
+      class="container flex flex-col flex-grow w-full border-2 border-blue-400 lg:max-w-5xl"
+    >
+      <div
+        class="flex flex-col items-center flex-grow gap-2 py-4 border-2 border-fuchsia-500"
+      >
+        <h1 class="text-2xl">
+          Welcome to ark<span class="text-red-500">Ticle</span>
+        </h1>
+        <p class="text-center">A place to find your thoughts</p>
+        <section class="contents">
+          <table class="min-w-full border border-collapse border-gray-300">
+            <thead>
+              <tr class="bg-gray-100">
+                <th
+                  class="px-4 py-2 text-sm font-semibold text-center text-gray-700 border border-gray-300"
+                >
+                  Id
+                </th>
+                <th
+                  class="px-4 py-2 text-sm font-semibold text-center text-gray-700 border border-gray-300"
+                >
+                  User ID
+                </th>
+                <th
+                  class="px-4 py-2 text-sm font-semibold text-center text-gray-700 border border-gray-300"
+                >
+                  Title
+                </th>
+                <th
+                  class="px-4 py-2 text-sm font-semibold text-center text-gray-700 border border-gray-300"
+                >
+                  Body
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd:bg-gray-50 even:bg-white hover:bg-gray-100">
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  1
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Maria Anders
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Germany
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Ullam et, porro dolorem officia reiciendis amet magni at iste?
+                  Ducimus, ad.
+                </td>
+              </tr>
+              <tr class="odd:bg-gray-50 even:bg-white hover:bg-gray-100">
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  2
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Francisco Chang
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Mexico
+                </td>
+                <td
+                  class="px-4 py-2 text-sm text-gray-800 border border-gray-300"
+                >
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
+                  quis soluta dolor voluptatibus rem quae.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </main>
+
+    <footer>ark<span class="text-red-500">Ticle</span> Copyright &copy;</footer>
   </body>
 </html>
