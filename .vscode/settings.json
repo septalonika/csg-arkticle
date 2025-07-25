@@ -2,9 +2,7 @@
   "editor.stickyScroll.enabled": false,
   "editor.minimap.enabled": false,
   "git.confirmSync": false,
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
