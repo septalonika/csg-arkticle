@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArkTicle | Reports</title>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .table-fixed-layout {
+        table-layout: fixed;
+      }
+      .table-cell-content {
+        word-wrap: break-word; /* For older browsers */
+        overflow-wrap: break-word; /* Standard property */
+      }
+    </style>
+    <link rel="stylesheet" href="../../public/css/style.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header class="flex justify-between h-full px-8 py-2 bg-gray-800">
+        <h1 class="flex h-full font-serif text-2xl font-bold text-slate-200">
+          Ark<span class="text-blue-500">Ticle</span>
+        </h1>
+        <nav class="flex items-center">
+          <ul class="flex space-x-4">
+            <li class="transition-all hover:scale-95">
+              <a
+                class="text-sm font-medium text-gray-300 hover:text-white"
+                href="./posts.html"
+                >Posts</a
+              >
+            </li>
+            <li class="transition-all hover:scale-95 "> 
+              <a
+                class="text-sm font-medium text-blue-400"
+                href="#"
+                >Reports</a
+              >
+            </li>
+            <li>
+        </nav>
+      </header>
+    <div class="container mx-auto">
+      
+      <main class="p-8">
+        <h2 class="mb-6 text-3xl font-bold text-gray-800">Reports Dashboard</h2>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="py-8 text-center">
+          <p class="text-gray-600">Loading reports data...</p>
+        </div>
+
+        <!-- Reports Container -->
+        <div id="reports-container" class="space-y-8" style="display: none">
+          <!-- Report 1: Posts with "rerum" -->
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-semibold text-gray-800">
+              Posts Containing "rerum" in Body
+            </h3>
+            <div class="p-4 border-l-4 border-blue-500 bg-blue-50">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <svg
+                    class="w-8 h-8 text-blue-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-blue-700">
+                    Total posts containing "rerum":
+                  </p>
+                  <p class="text-2xl font-bold text-blue-800" id="rerum-count">
+                    -
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Optional: Show list of posts with "rerum" -->
+            <div class="mt-4">
+              <button
+                id="toggle-rerum-details"
+                class="text-sm font-medium text-blue-600 hover:text-blue-800"
+              >
+                Show Details
+              </button>
+              <div id="rerum-details" class="hidden mt-3">
+                <div class="overflow-x-auto rounded-lg shadow-sm">
+                  <table class="min-w-full border-collapse table-fixed-layout">
+                    <thead>
+                      <tr class="bg-blue-500">
+                        <th
+                          class="w-2/12 px-4 py-4 text-sm font-semibold tracking-wider text-center text-white uppercase"
+                        >
+                          User ID
+                        </th>
+                        <th
+                          class="w-4/12 px-4 py-4 text-sm font-semibold tracking-wider text-center text-white uppercase"
+                        >
+                          Title
+                        </th>
+                        <th
+                          class="w-6/12 px-4 py-4 text-sm font-semibold tracking-wider text-center text-white uppercase"
+                        >
+                          Body Preview
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody id="rerum-posts-tbody" class="bg-white">
+                      <!-- Will be populated by JavaScript -->
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Pagination Controls for Rerum Posts -->
+                <div
+                  id="rerum-pagination-controls"
+                  class="flex items-center justify-center mt-4 space-x-2"
+                >
+                  <!-- Pagination buttons will be injected here by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Report 2: Posts by User -->
+          <div class="p-6 bg-white rounded-lg shadow-md">
+            <h3 class="mb-4 text-xl font-semibold text-gray-800">
+              Post Count by User
+            </h3>
+            <div class="overflow-x-auto rounded-lg shadow-sm">
+              <table class="min-w-full border-collapse table-fixed-layout">
+                <thead>
+                  <tr class="bg-blue-500">
+                    <th
+                      class="w-1/2 px-4 py-4 text-sm font-semibold tracking-wider text-center text-white uppercase"
+                    >
+                      User ID
+                    </th>
+                    <th
+                      class="w-1/2 px-4 py-4 text-sm font-semibold tracking-wider text-center text-white uppercase"
+                    >
+                      Post Count
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="user-posts-tbody" class="bg-white">
+                  <!-- Will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="py-8 text-center" style="display: none">
+          <p class="text-red-600">
+            Failed to load reports data. Please try again later.
+          </p>
+        </div>
+      </main>
+    </div>
+
+  <script type="module" src="../assets/js/reports.js"></script>
+  </body>
+</html>
