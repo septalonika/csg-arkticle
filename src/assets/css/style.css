@@ -1,0 +1,86 @@
+/* Import Tailwind CSS */
+@import "tailwindcss";
+
+/* Base Styles */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Table Styles */
+.table-fixed-layout {
+  table-layout: fixed;
+}
+
+.table-cell-content {
+  word-wrap: break-word; /* For older browsers */
+  overflow-wrap: break-word; /* Standard property */
+}
+
+/* Custom Hover Effects */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(0.95);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .table-container {
+    font-size: 0.875rem;
+  }
+
+  .pagination-controls {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+}
+
+/* Focus States */
+.focus-ring:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #3b82f6;
+  ring-opacity: 0.5;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
