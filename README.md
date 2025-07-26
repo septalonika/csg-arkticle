@@ -1,5 +1,4 @@
 # ArkTicle
-## This repository is used for CSG Indonesia recruitment test process
 
 ### Installation:
 ```
